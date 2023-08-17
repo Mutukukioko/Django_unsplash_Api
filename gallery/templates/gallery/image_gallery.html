@@ -5,30 +5,20 @@
 <html>
 <head>
     <title>My Template</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'gallery/styles.css' %}">
     {% load bootstrap4 %}
   {% bootstrap_css %}
   {% bootstrap_javascript %}
 </head>
 <body>
     <h1>Unsplash Images</h1>
-    <form method="GET" action="" >
-        <label for="category" class="form-group">Select a Category:</label>
-        <select name="category"class="form-group" id="category">
-            <option value="nature">Nature</option>
-            <option value="city">City</option>
-            <option value="animals">Animals</option>
-            <!-- Add more categories here -->
-        </select>
-        <button type="submit"class="form-group">Show Pictures</button>
-    </form>
-
+   
     {% if images %}
     <div class="row">
         {% for image in images %}
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="{{ image.urls.regular }}" class="card-img-top" alt="{{ image.alt_description }}">
+                    <img src="{{ image.urls.small }}" class="card-img-top" alt="{{ image.alt_description }}">
                     <div class="card-body">
                         <p class="card-text">Photographer: {{ image.user.name }}</p>
                     </div>
